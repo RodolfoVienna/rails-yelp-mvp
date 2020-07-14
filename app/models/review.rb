@@ -3,7 +3,8 @@ class Review < ApplicationRecord
     # validates :restaurant_id, presence: true la validatio nserve per gli input dell'user non per le operazioni del DATABASE 
     # che sono già specificate 
     validates :content, :rating, presence: true
-    validates :rating, inclusion: { in: 0..5}, numericality: { only_integer: true}
+    validates :rating, presence: true, inclusion: { in: (0..5),
+  message: "%{value} is not a valid rating" }, numericality: { only_integer: true }
 end
 
 
